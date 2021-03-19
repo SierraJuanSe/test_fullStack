@@ -1,0 +1,13 @@
+<!-- este index ya no tiene nada por que va a heredar la estructura html de base.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Place holders para contenido dinamico -->
+<h1>Hello, {{user.username}}!</h1>
+<!-- For loop -->
+{% for post in posts %}
+<div>
+    <p>{{post.author.username}} says: <b>{{post.body}}</b></p>
+</div>
+{% endfor %}
+{% endblock %}
