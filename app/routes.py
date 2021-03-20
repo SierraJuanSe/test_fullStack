@@ -3,28 +3,26 @@ from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 from datetime import datetime
 from app import app
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, PostForm
 from app.models.user import User
+from app.models.post import Post
 from app import db
 
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 @login_required  # Obliga a que se haga el login antes de mostrar la pagina principal
 def index():
-    user = {'username': 'Juan'}
-    posts = [
-        {
-            'author': {'username': 'Felipe'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Alejandro'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live!')
+        return redirect(url_for('index'))
 
-    return render_template('index.html', title='Home Page', posts=posts)
+    posts = current_user.followed_posts().all()
+    return render_template('index.html', title='Home Page', posts=posts, form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
