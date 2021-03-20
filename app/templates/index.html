@@ -2,12 +2,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Place holders para contenido dinamico -->
-<h1>Hello, {{user.username}}!</h1>
-<!-- For loop -->
-{% for post in posts %}
-<div>
-    <p>{{post.author.username}} says: <b>{{post.body}}</b></p>
-</div>
-{% endfor %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+    {% for post in posts %}
+    <div>
+        <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
+    </div>
+    {% endfor %}
 {% endblock %}
