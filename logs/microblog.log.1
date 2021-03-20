@@ -1,13 +1,5 @@
-2021-03-19 23:12:05,775 ERROR: Exception on /edit_profile [POST] [in /home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_context
-    self.dialect.do_execute(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 681, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
+2021-03-20 00:32:11,219 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 00:32:14,194 ERROR: Exception on /index [GET] [in /home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -23,79 +15,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/sebastian/workspaceu/test_fullStack/app/routes.py", line 94, in edit_profile
-    db.session.commit()
-  File "<string>", line 2, in commit
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1406, in commit
-    self._transaction.commit(_to_root=self.future)
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 820, in commit
-    self._prepare_impl()
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 799, in _prepare_impl
-    self.session.flush()
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 3224, in flush
-    self._flush(objects)
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 3364, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 198, in raise_
-    raise exception
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 3324, in _flush
-    flush_context.execute()
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 453, in execute
-    rec.execute(self)
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 627, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 234, in save_obj
-    _emit_update_statements(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 998, in _emit_update_statements
-    c = connection._execute_20(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1520, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 313, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1389, in _execute_clauseelement
-    ret = self._execute_context(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1748, in _execute_context
-    self._handle_dbapi_exception(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1929, in _handle_dbapi_exception
-    util.raise_(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 198, in raise_
-    raise exception
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_context
-    self.dialect.do_execute(
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 681, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('sierra', 'heyyyy', 5)]
-(Background on this error at: http://sqlalche.me/e/14/gkpj)
-2021-03-19 23:18:35,523 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-19 23:33:55,419 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-19 23:34:47,491 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-19 23:35:03,430 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-20 00:03:33,079 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-20 00:04:05,843 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-20 00:17:47,310 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-20 00:18:59,039 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-20 00:19:20,272 ERROR: Exception on /user/sierra [GET] [in /home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/sebastian/workspaceu/test_fullStack/app/routes.py", line 78, in user
-    return render_template('user.html', user=user, posts=posts)
+  File "/home/sebastian/workspaceu/test_fullStack/app/routes.py", line 33, in index
+    return render_template('index.html', title='Home Page', posts=posts)
   File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
     return _render(
   File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
@@ -106,17 +27,94 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "/home/sebastian/workspaceu/test_fullStack/app/templates/user.html", line 1, in top-level template code
+  File "/home/sebastian/workspaceu/test_fullStack/app/templates/index.html", line 2, in top-level template code
     {% extends "base.html" %}
   File "/home/sebastian/workspaceu/test_fullStack/app/templates/base.html", line 39, in top-level template code
     {% block content %}{% endblock %}
-  File "/home/sebastian/workspaceu/test_fullStack/app/templates/user.html", line 17, in block "content"
+  File "/home/sebastian/workspaceu/test_fullStack/app/templates/index.html", line 7, in block "content"
     {{ form.hidden_tag() }}
   File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2021-03-20 00:21:04,987 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-20 00:22:26,432 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-20 00:23:45,952 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-20 00:24:12,926 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
-2021-03-20 00:31:57,554 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 00:32:34,928 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 00:33:12,002 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 00:35:08,699 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 00:35:32,364 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 00:35:36,495 ERROR: Exception on /index [POST] [in /home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/sebastian/workspaceu/test_fullStack/app/routes.py", line 17, in index
+    post = Post(body=form.post.data, author=current_user)
+NameError: name 'Post' is not defined
+2021-03-20 00:36:37,842 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 00:42:10,526 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 12:14:55,969 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 12:23:19,444 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
+2021-03-20 12:23:22,489 ERROR: Exception on /index [GET] [in /home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/sebastian/workspaceu/test_fullStack/app/routes.py", line 27, in index
+    return render_template('index.html', title='Home Page', posts=posts, form=form)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sebastian/workspaceu/test_fullStack/app/templates/index.html", line 2, in top-level template code
+    {% extends "base.html" %}
+  File "/home/sebastian/workspaceu/test_fullStack/app/templates/base.html", line 40, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/sebastian/workspaceu/test_fullStack/app/templates/index.html", line 19, in block "content"
+    {% for post in posts %}
+TypeError: 'Pagination' object is not iterable
+2021-03-20 12:23:23,697 ERROR: Exception on /explore [GET] [in /home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/sebastian/workspaceu/test_fullStack/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/sebastian/workspaceu/test_fullStack/app/routes.py", line 35, in explore
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'
+2021-03-20 12:23:54,326 INFO: Microblog startup [in /home/sebastian/workspaceu/test_fullStack/app/__init__.py:43]
